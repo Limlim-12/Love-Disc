@@ -1,3 +1,4 @@
+/* --- UNIVERSAL STYLES --- */
 body {
     display: flex;
     flex-direction: column;
@@ -8,21 +9,29 @@ body {
     font-family: 'Georgia', serif;
     color: #5d4037;
     text-align: center;
-    margin: 0;
+    margin: 0 15px;
+    /* Add some side margin for small screens */
     overflow: hidden;
 }
 
+/* --- BASE STYLES (MOBILE-FIRST) --- */
+
 h1 {
-    font-size: 3em;
+    font-size: 2.5em;
+    /* Smaller font for mobile */
 }
 
 #record-player {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 #disc {
-    width: 550px;
-    height: 550px;
+    /* Use viewport width (vw) to make it scale with the screen */
+    width: 80vw;
+    height: 80vw;
+    max-width: 550px;
+    /* Set a max size for larger phones */
+    max-height: 550px;
     border-radius: 50%;
     cursor: pointer;
     position: relative;
@@ -52,22 +61,26 @@ h1 {
 
 #popup-container {
     position: fixed;
-    top: 75%;
+    top: 78%;
+    /* Positioned for mobile screens */
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 90%;
+    /* Use percentage width for flexibility */
+    max-width: 300px;
+    /* Set a max-width */
     background-color: #ffffff;
     padding: 15px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     z-index: 1000;
     opacity: 1;
-    /* Default opacity when visible */
     transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
-    /* Fade and slide with a 0.2s delay */
 }
 
 #popup-container img {
-    max-width: 200px;
+    max-width: 150px;
+    /* Smaller image for mobile */
     border-radius: 8px;
 }
 
@@ -75,16 +88,60 @@ h1 {
     font-size: 1em;
     color: #e85a71;
     margin-top: 10px;
-    max-width: 220px;
+    max-width: 150px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* This hides the pop-up initially and applies a transition for smooth hiding/showing */
 .hidden {
     opacity: 0;
     pointer-events: none;
-    /* Makes it unclickable when hidden */
     transform: translate(-50%, -30%);
-    /* Slightly offset for a slide effect */
+}
+
+
+/* --- TABLET STYLES (for screens wider than 768px) --- */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3em;
+        /* Increase font size back */
+    }
+
+    #disc {
+        max-width: 400px;
+        /* Allow disc to be a bit bigger */
+        max-height: 400px;
+    }
+
+    #popup-container {
+        max-width: 350px;
+        /* Allow pop-up to be bigger */
+    }
+
+    #popup-container img {
+        max-width: 200px;
+        /* Increase image size */
+    }
+}
+
+
+/* --- DESKTOP STYLES (for screens wider than 1024px) --- */
+@media (min-width: 1024px) {
+    #record-player {
+        margin-top: 50px;
+    }
+
+    #disc {
+        /* Use the large size for PCs */
+        width: 550px;
+        height: 550px;
+        max-width: 550px;
+        max-height: 550px;
+    }
+
+    #popup-container {
+        top: 75%;
+        /* Fine-tune position for desktop */
+        max-width: 400px;
+    }
 }
