@@ -29,9 +29,9 @@ h1 {
     /* Use viewport width (vw) to make it scale with the screen */
     width: 80vw;
     height: 80vw;
-    max-width: 550px;
+    max-width: 650px;
     /* Set a max size for larger phones */
-    max-height: 550px;
+    max-height: 650px;
     border-radius: 50%;
     cursor: pointer;
     position: relative;
