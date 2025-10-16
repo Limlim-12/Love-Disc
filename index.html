@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Song</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Happy Monthsary!</h1>
+        <p>Click the disc to play our song ❤️</p>
+    </header>
+
+    <main>
+        <div id="record-player">
+            <img src="disc.png" alt="A vinyl record with The Creation of Adam hands painted on it" id="disc">
+        </div>
+
+        <!-- The pop-up container is initially hidden by the 'hidden' class in CSS -->
+        <div id="popup-container" class="hidden">
+            <img src="chot.jpg" alt="A photo of the happy couple">
+            <p class="message">
+                hi babyy! thankyou for being the greatest blessing of my life. we’re gonna make it bigtime soon, okay?
+                what a plot twist you were
+            </p>
+        </div>
+    </main>
+
+    <!-- The audio element is not visible on the page -->
+    <audio id="our-song" src="song.mp3" preload="auto"></audio>
+
+    <!-- The 'defer' attribute ensures the script runs after the page has loaded -->
+    <script src="script.js" defer></script>
+
+</body>
+
+</html>

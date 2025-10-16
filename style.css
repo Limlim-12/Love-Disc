@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0e4d7;
+    font-family: 'Georgia', serif;
+    color: #5d4037;
+    text-align: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+#record-player {
+    margin-top: 50px;
+}
+
+#disc {
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#disc:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.spinning {
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#popup-container {
+    position: fixed;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    opacity: 1;
+    /* Default opacity when visible */
+    transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+    /* Fade and slide with a 0.2s delay */
+}
+
+#popup-container img {
+    max-width: 200px;
+    border-radius: 8px;
+}
+
+#popup-container .message {
+    font-size: 1em;
+    color: #e85a71;
+    margin-top: 10px;
+    max-width: 220px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* This hides the pop-up initially and applies a transition for smooth hiding/showing */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    /* Makes it unclickable when hidden */
+    transform: translate(-50%, -30%);
+    /* Slightly offset for a slide effect */
+}
