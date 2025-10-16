@@ -144,3 +144,46 @@ h1 {
         max-width: 400px;
     }
 }
+
+/* --- POP-UP STYLES (SIZED FOR PHONE) --- */
+#popup-container {
+    position: fixed;
+    top: 78%;
+    /* Positioned nicely below the disc on mobile */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    /* Flexible width for different phone sizes */
+    max-width: 260px;
+    /* A clean max-width for the container */
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+}
+
+#popup-container img {
+    max-width: 160px;
+    /* Image sized nicely within the container */
+    border-radius: 8px;
+}
+
+#popup-container .message {
+    font-size: 0.9em;
+    /* Legible but not too large */
+    color: #e85a71;
+    margin-top: 10px;
+    max-width: 220px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* This class handles the initial hiding and animation */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -30%);
+}
