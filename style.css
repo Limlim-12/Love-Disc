@@ -5,37 +5,32 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* Use -webkit-fill-available to fix height issues on mobile Safari */
-    min-height: -webkit-fill-available;
     background-color: #f0e4d7;
     font-family: 'Georgia', serif;
     color: #5d4037;
     text-align: center;
-    margin: 0;
+    margin: 0 15px;
+    /* Add some side margin for small screens */
     overflow: hidden;
 }
 
-/* --- MOBILE STYLES (The Default) --- */
+/* --- BASE STYLES (MOBILE-FIRST) --- */
 
 h1 {
-    font-size: 1.8em;
-    /* Smaller title to save vertical space */
-    margin-bottom: 5px;
-    margin-top: 0;
+    font-size: 2.2em;
+    /* Made slightly smaller for mobile */
 }
 
 #record-player {
-    /* Pull the player up slightly */
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 #disc {
-    /* CRITICAL FIX: Make disc smaller on phones to leave room below */
-    width: 65vw;
-    height: 65vw;
-    max-width: 260px;
-    /* Cap size so it doesn't get huge */
-    max-height: 260px;
+    width: 95vw;
+    height: 95vw;
+    max-width: 1000px;
+    /* Corrected max size for phones */
+    max-height: 1000px;
     border-radius: 50%;
     cursor: pointer;
     position: relative;
@@ -63,18 +58,17 @@ h1 {
     }
 }
 
-/* --- MOBILE POP-UP SETTINGS --- */
 #popup-container {
     position: fixed;
-    /* MOVED UP from 78% to 66% to avoid iPhone bottom bar */
-    top: 66%;
+    top: 78%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    width: 85%;
-    max-width: 260px;
+    width: 90%;
+    max-width: 240px;
+    /* Reduced max-width to make container smaller */
     background-color: #ffffff;
     padding: 12px;
+    /* Reduced padding slightly */
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     z-index: 1000;
@@ -83,51 +77,42 @@ h1 {
 }
 
 #popup-container img {
-    /* Slightly smaller image to leave room for text */
-    max-width: 140px;
+    max-width: 180px;
+    /* Adjusted image size for the new container */
     border-radius: 8px;
 }
 
 #popup-container .message {
-    font-size: 0.85em;
-    /* Readable, compact font size */
-    line-height: 1.3;
+    font-size: 0.9em;
+    /* Made text a bit smaller */
     color: #e85a71;
-    margin-top: 8px;
-    max-width: 100%;
+    margin-top: 10px;
+    max-width: 200px;
+    /* Adjusted message width */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hidden {
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -30%);
 }
 
 
-/* --- TABLET OVERRIDES (Min-width: 768px) --- */
+/* --- TABLET STYLES (for screens wider than 768px) --- */
 @media (min-width: 768px) {
     h1 {
         font-size: 3em;
-        margin-bottom: 20px;
-    }
-
-    #record-player {
-        margin-top: 30px;
     }
 
     #disc {
-        /* Restore bigger size for tablets */
-        width: 400px;
-        height: 400px;
         max-width: 400px;
         max-height: 400px;
     }
 
     #popup-container {
-        /* Move it down a bit on big screens since we have room */
-        top: 80%;
-        max-width: 350px;
-        padding: 20px;
+        max-width: 380px;
     }
 
     #popup-container img {
@@ -135,14 +120,19 @@ h1 {
     }
 
     #popup-container .message {
-        font-size: 1.1em;
+        font-size: 1em;
+        /* Restore font size */
     }
 }
 
-/* --- DESKTOP OVERRIDES (Min-width: 1024px) --- */
+
+/* --- DESKTOP STYLES (for screens wider than 1024px) --- */
 @media (min-width: 1024px) {
+    #record-player {
+        margin-top: 50px;
+    }
+
     #disc {
-        /* Restore massive size for Desktop */
         width: 550px;
         height: 550px;
         max-width: 550px;
@@ -153,4 +143,47 @@ h1 {
         top: 75%;
         max-width: 400px;
     }
+}
+
+/* --- POP-UP STYLES (SIZED FOR PHONE) --- */
+#popup-container {
+    position: fixed;
+    top: 65%;
+    /* Positioned nicely below the disc on mobile */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    /* Flexible width for different phone sizes */
+    max-width: 250px;
+    /* A clean max-width for the container */
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+}
+
+#popup-container img {
+    max-width: 210px;
+    /* Image sized nicely within the container */
+    border-radius: 8px;
+}
+
+#popup-container .message {
+    font-size: 0.9em;
+    /* Legible but not too large */
+    color: #e85a71;
+    margin-top: 3px;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* This class handles the initial hiding and animation */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -30%);
 }
