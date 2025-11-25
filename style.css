@@ -148,7 +148,7 @@ h1 {
 /* --- POP-UP STYLES (SIZED FOR PHONE) --- */
 #popup-container {
     position: fixed;
-    top: 65%;
+    top: 70%;
     /* Positioned nicely below the disc on mobile */
     left: 50%;
     transform: translate(-50%, -50%);
