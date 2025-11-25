@@ -148,11 +148,11 @@ h1 {
 /* --- POP-UP STYLES (SIZED FOR PHONE) --- */
 #popup-container {
     position: fixed;
-    top: 70%;
+    top: 74%;
     /* Positioned nicely below the disc on mobile */
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 85%;
+    width: 80%;
     /* Flexible width for different phone sizes */
     max-width: 250px;
     /* A clean max-width for the container */
