@@ -154,7 +154,7 @@ h1 {
     transform: translate(-50%, -50%);
     width: 85%;
     /* Flexible width for different phone sizes */
-    max-width: 260px;
+    max-width: 250px;
     /* A clean max-width for the container */
     background-color: #ffffff;
     padding: 15px;
@@ -166,7 +166,7 @@ h1 {
 }
 
 #popup-container img {
-    max-width: 160px;
+    max-width: 250px;
     /* Image sized nicely within the container */
     border-radius: 8px;
 }
