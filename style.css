@@ -166,7 +166,7 @@ h1 {
 }
 
 #popup-container img {
-    max-width: 250px;
+    max-width: 210px;
     /* Image sized nicely within the container */
     border-radius: 8px;
 }
